@@ -34,7 +34,8 @@ class Display:
         player_two.goto(20, 280)
         player_one.write(f"Player One Score: {player_one.player_score}", font=FONT)
         player_two.write(f"Player Two Score: {player_two.player_score}", font=FONT)
-        screen.onkey()
+        screen.listen()
+        screen.onkey(paddles.one_move_left,"w")
 
 
         screen.exitonclick()
