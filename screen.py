@@ -35,8 +35,10 @@ class Display:
         player_one.write(f"Player One Score: {player_one.player_score}", font=FONT)
         player_two.write(f"Player Two Score: {player_two.player_score}", font=FONT)
         screen.listen()
-        screen.onkey(paddles.one_move_left,"w")
+        screen.onkey(paddles.move_one_left,"w")
         screen.onkey(paddles.move_one_right, "s")
+        screen.onkey(paddles.move_two_left, "Down")
+        screen.onkey(paddles.move_two_right, "Up")
 
 
         screen.exitonclick()

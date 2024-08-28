@@ -28,8 +28,7 @@ class Paddles:
         for player,position in STARTING_POSITION.items():
             self.add_turtle(player, position)
 
-    def one_move_left(self):
-
+    def move_one_left(self):
         for tur in self.paddles["player_one"]:
             tur.setheading(90)
             x_cor = tur.xcor()
@@ -40,6 +39,19 @@ class Paddles:
             tur.setheading(90)
             x_cor = tur.xcor()
             y_cor = tur.ycor() - 20
+            tur.goto(x=x_cor, y=y_cor)
+
+    def move_two_left(self):
+        for tur in self.paddles["player_two"]:
+            tur.setheading(90)
+            x_cor = tur.xcor()
+            y_cor = tur.ycor() - 20
+            tur.goto(x=x_cor, y=y_cor)
+    def move_two_right(self):
+        for tur in self.paddles["player_two"][-1: : -1]:
+            tur.setheading(90)
+            x_cor = tur.xcor()
+            y_cor = tur.ycor() + 20
             tur.goto(x=x_cor, y=y_cor)
 
 
