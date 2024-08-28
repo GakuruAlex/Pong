@@ -22,7 +22,7 @@ class Paddles:
             turtle.penup()
             x_cor, y_cor = coord
             turtle.goto(x=x_cor, y=y_cor)
-            turtle.setheading(90)
+
             self.paddles[player].append(turtle)
 
 
@@ -30,7 +30,4 @@ class Paddles:
         for player,position in STARTING_POSITION.items():
             self.add_turtle(player, position)
 
-    def move_paddle(self, player):
-        for paddle in self.paddles[player]:
-            paddle.forward(20)
-
+   
