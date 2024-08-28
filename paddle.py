@@ -36,6 +36,10 @@ class Paddles:
             y_cor = tur.ycor() + 20
             tur.goto(x=x_cor, y=y_cor)
     def move_one_right(self):
-        
+        for tur in self.paddles["player_one"][-1: : -1]:
+            tur.setheading(90)
+            x_cor = tur.xcor()
+            y_cor = tur.ycor() - 20
+            tur.goto(x=x_cor, y=y_cor)
 
 
