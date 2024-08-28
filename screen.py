@@ -1,7 +1,11 @@
 from turtle import Turtle, Screen
+from paddle import Paddles
+from player import Player
+FONT = ('Arial', 14, 'normal')
 class Display:
     def show_display(self)-> None:
         screen = Screen()
+        
         screen.setup(width= 800, height = 600)
         screen.bgcolor("black")
         screen.title("Pong Game")
@@ -21,6 +25,16 @@ class Display:
             else:
                 divide_screen.penup()
                 divide_screen.forward(15)
+        #Create paddles
+        paddles = Paddles()
+        #Create players
+        player_one = Player()
+        player_two = Player()
+        player_one.goto(-280, 280)
+        player_two.goto(20, 280)
+        player_one.write(f"Player One Score: {player_one.player_score}", font=FONT)
+        player_two.write(f"Player Two Score: {player_two.player_score}", font=FONT)
+        screen.onkey()
 
 
         screen.exitonclick()
