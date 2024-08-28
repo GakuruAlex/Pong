@@ -1,7 +1,8 @@
-from turtle import Screen,Turtle
+from screen import Display
 
 def main()-> None:
-    pass
+    display = Display()
+    display.show_display()
 
 
 if __name__ == "__main__":
