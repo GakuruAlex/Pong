@@ -1,17 +1,10 @@
 from turtle import Turtle
-STARTING_POSITION ={
-    "player_one": [(-390,-20), (-390, 0), (-390, 20)],
-    "player_two": [(390, -20), (390, 0), (390, 20)]
-}
+
 class Paddles:
     def __init__(self):
-        self.paddles = {"player_one":[], "player_two": []}
-        self.set_paddle()
+        self.paddles =[]
 
-
-
-
-    def add_turtle(self,player, position):
+    def add_turtle(self, position):
         for coord in position:
             turtle = Turtle()
             turtle.shape("square")
@@ -21,34 +14,30 @@ class Paddles:
             x_cor, y_cor = coord
             turtle.goto(x=x_cor, y=y_cor)
 
-            self.paddles[player].append(turtle)
+            self.paddles.append(turtle)
 
-
-    def set_paddle(self):
-        for player,position in STARTING_POSITION.items():
-            self.add_turtle(player, position)
 
     def move_one_left(self):
-        for tur in self.paddles["player_one"]:
+        for tur in self.paddles:
             tur.setheading(90)
             x_cor = tur.xcor()
             y_cor = tur.ycor() + 20
             tur.goto(x=x_cor, y=y_cor)
     def move_one_right(self):
-        for tur in self.paddles["player_one"][-1: : -1]:
+        for tur in self.paddles[-1: : -1]:
             tur.setheading(90)
             x_cor = tur.xcor()
             y_cor = tur.ycor() - 20
             tur.goto(x=x_cor, y=y_cor)
 
     def move_two_left(self):
-        for tur in self.paddles["player_two"][-1: : -1]:
+        for tur in self.paddles[-1: : -1]:
             tur.setheading(90)
             x_cor = tur.xcor()
             y_cor = tur.ycor() - 20
             tur.goto(x=x_cor, y=y_cor)
     def move_two_right(self):
-        for tur in self.paddles["player_two"]:
+        for tur in self.paddles:
             tur.setheading(90)
             x_cor = tur.xcor()
             y_cor = tur.ycor() + 20

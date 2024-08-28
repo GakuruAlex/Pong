@@ -1,7 +1,11 @@
 from turtle import Turtle, Screen
 from paddle import Paddles
 from player import Player
-FONT = ('Arial', 14, 'normal')
+from ball import Ball
+STARTING_POSITION ={
+    "player_one": [(-390,-20), (-390, 0), (-390, 20)],
+    "player_two": [(390, -20), (390, 0), (390, 20)]
+}
 class Display:
     def show_display(self)-> None:
         screen = Screen()
@@ -26,19 +30,18 @@ class Display:
                 divide_screen.penup()
                 divide_screen.forward(15)
         #Create paddles
-        paddles = Paddles()
-        #Create players
-        player_one = Player()
-        player_two = Player()
-        player_one.goto(-280, 280)
-        player_two.goto(20, 280)
-        player_one.write(f"Player One Score: {player_one.player_score}", font=FONT)
-        player_two.write(f"Player Two Score: {player_two.player_score}", font=FONT)
+        paddle_one = Paddles()
+        paddle_two =Paddles()
+        paddle_one.add_turtle(STARTING_POSITION["player_one"])
+        paddle_two.add_turtle(STARTING_POSITION["player_two"])
+
         screen.listen()
-        screen.onkey(paddles.move_one_left,"w")
-        screen.onkey(paddles.move_one_right, "s")
-        screen.onkey(paddles.move_two_left, "Down")
-        screen.onkey(paddles.move_two_right, "Up")
+        screen.onkey(paddle_one.move_one_left,"w")
+        screen.onkey(paddle_one.move_one_right, "s")
+        screen.onkey(paddle_two.move_two_left, "Down")
+        screen.onkey(paddle_two.move_two_right, "Up")
+
+
 
 
         screen.exitonclick()
