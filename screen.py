@@ -5,10 +5,12 @@ class Display:
         screen.setup(width= 800, height = 600)
         screen.bgcolor("black")
         screen.title("Pong Game")
+        #Turtle
         divide_screen = Turtle()
         divide_screen.color("white")
         divide_screen.penup()
         divide_screen.hideturtle()
+        divide_screen.speed()
         divide_screen.goto(0, 290)
         divide_screen.setheading(270)
         divide_screen.pensize(5)
