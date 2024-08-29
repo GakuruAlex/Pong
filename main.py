@@ -33,10 +33,9 @@ def main()->None:
         ball.move()
         if ball.ycor() > 280 or ball.ycor() < -280:
             ball.bounce_y()
-        if ball.distance(right_paddle) < 50 and ball.xcor() > 340:
+        if ball.distance(right_paddle) < 50 and ball.xcor() > 340 or ball.distance(left_paddle) < 50 and ball.xcor() < -340:
             ball.bounce_x()
-
-
+        
     screen.exitonclick()
 
 if __name__=="__main__":
