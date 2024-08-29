@@ -17,30 +17,19 @@ class Paddles:
             self.paddles.append(turtle)
 
 
-    def move_one_left(self):
-        for tur in self.paddles:
-            tur.setheading(90)
-            x_cor = tur.xcor()
-            y_cor = tur.ycor() + 20
-            tur.goto(x=x_cor, y=y_cor)
-    def move_one_right(self):
-        for tur in self.paddles[-1: : -1]:
-            tur.setheading(90)
-            x_cor = tur.xcor()
-            y_cor = tur.ycor() - 20
-            tur.goto(x=x_cor, y=y_cor)
-
-    def move_two_left(self):
-        for tur in self.paddles[-1: : -1]:
-            tur.setheading(90)
-            x_cor = tur.xcor()
-            y_cor = tur.ycor() - 20
-            tur.goto(x=x_cor, y=y_cor)
-    def move_two_right(self):
-        for tur in self.paddles:
-            tur.setheading(90)
-            x_cor = tur.xcor()
-            y_cor = tur.ycor() + 20
-            tur.goto(x=x_cor, y=y_cor)
-
-
+    def move_up(self):
+        head = self.paddles[0]
+        if head.ycor() < 243:
+            for i in range(len(self.paddles) - 1, 0, -1):
+                x_cor = self.paddles[i].xcor()
+                y_cor = self.paddles[i].ycor()
+                self.paddles[i].goto(x=x_cor, y= y_cor + 20)
+            head.goto(x =head.xcor(), y= head.ycor() + 20)
+    def move_down(self):
+        head = self.paddles[-1]
+        if head.ycor() > -240:
+            for i in range(0,len(self.paddles) - 1, 1):
+                x_cor = self.paddles[i].xcor()
+                y_cor = self.paddles[i].ycor()
+                self.paddles[i].goto(x=x_cor, y= y_cor - 20)
+            head.goto(x =head.xcor(), y= head.ycor() - 20)
