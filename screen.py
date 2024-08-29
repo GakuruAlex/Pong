@@ -36,10 +36,10 @@ class Display:
         paddle_two.add_turtle(STARTING_POSITION["player_two"])
 
         screen.listen()
-        screen.onkey(paddle_one.move_one_left,"w")
-        screen.onkey(paddle_one.move_one_right, "s")
-        screen.onkey(paddle_two.move_two_left, "Down")
-        screen.onkey(paddle_two.move_two_right, "Up")
+        screen.onkey(paddle_one.move_up,"w")
+        screen.onkey(paddle_one.move_down, "s")
+        screen.onkey(paddle_two.move_down, "Down")
+        screen.onkey(paddle_two.move_up, "Up")
 
 
 
