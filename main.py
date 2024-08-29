@@ -1,9 +1,11 @@
 
+import time
 from turtle import Screen
 from paddle import Paddle
+from ball import Ball
 STARTING_POSITION ={
-    "player_one": (-390, 0),
-    "player_two": (390, 0)
+    "player_one": (-370, 0),
+    "player_two": (370, 0)
 }
 
 def main()->None:
@@ -16,6 +18,7 @@ def main()->None:
     
     left_paddle = Paddle(STARTING_POSITION["player_one"])
     right_paddle = Paddle(STARTING_POSITION["player_two"])
+    ball = Ball()
 
     screen.listen()
 
@@ -25,7 +28,12 @@ def main()->None:
     screen.onkey(right_paddle.down, "Down")
     
     while game_is_on:
+        time.sleep(0.1)
         screen.update()
+        ball.move()
+        if ball.ycor() > 280 or ball.ycor() < -280:
+            ball.bounce()
+
 
     screen.exitonclick()
 
